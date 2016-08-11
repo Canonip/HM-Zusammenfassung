@@ -1,0 +1,43 @@
+\documentclass[a4paper,portrait]{scrartcl}
+\author{Andreas Mai}
+\title{HM I + II Zusammenfassung KIT}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[german]{babel}
+
+\begin{document}
+
+\maketitle
+\begin{center}
+\textbf{HM Klausur am 30.08.2016} \\
+\textbf{08:00 - 10:00 HM I} \\
+\textbf{11:00 - 13:00 HM II} 
+\end{center}
+
+\begin{center}
+\textit{Kein Anspruch auf Vollständigkeit ;)}
+\end{center}\clearpage
+\tableofcontents
+\clearpage
+\setcounter{page}{1}
+\section{Konvergenz}
+\begin{itemize}
+  \item Eine Folge (oder Reihe) ist konvergent, wenn sie gegen einen bestimmten Wert konvergiert.
+  \item Sie ist bestimmt divergent, wenn sie gegen $ \pm  \infty $ läuft
+  \item Sie ist unbestimmt divergent, wenn sich keine Aussage machen lässt \\ (bsp: 1 und -1 abwechselnd)
+\end{itemize}
+
+\subsection{Vorgehen}
+\subsubsection{Grenzwert bestimmen}
+Grad der Funktion:
+\begin{itemize}
+  \item $Zählergrad < Nennergrad \Rightarrow  S_{n} \rightarrow 0$ \\
+  Beispiel: $S_{n} = \frac{n}{n^2+4} \Rightarrow S_{n} \rightarrow 0$
+  \item $Zählergrad = Nennergrad \Rightarrow  S_{n} \rightarrow Bruch$ \\
+    Beispiel: $S_{n} = \frac{3n+4}{5n+96} \Rightarrow S_{n} \rightarrow \frac{3}{5}$
+  \item $Zählergrad > Nennergrad \Rightarrow  S_{n} \rightarrow \infty \Rightarrow $ bestimmt divergent \\
+    Beispiel: $S_{n} = \frac{n^6-7}{n^2+4} \Rightarrow S_{n} \rightarrow \infty$
+\end{itemize}
+
+\end{document}

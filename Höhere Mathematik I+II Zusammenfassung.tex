@@ -65,18 +65,49 @@ Zählergrad < Nennergrad $\Rightarrow  s_{n} \rightarrow 0$ \\
 $ |s_n - g| = |\frac{1}{n} - 0| = \frac{1}{n} < \frac{1}{n_0} \leq \varepsilon$ \\
 Drüber schreiben: Es sei $n_0 > \frac{1}{\varepsilon}$
 \subsubsection{Nullfolgenkriterium}
-\subsubsection{Mino/Majorantenkriterium}
+$ \lim\limits_{n \rightarrow \infty} \neq 0 \Rightarrow \sum_{i=0}^{\infty} $ divergent \\
+Die Folge der Reihe muss gegen 0 laufen, dass die Reihe konvergent sein kann (nicht umgekehrt!)
+\subsubsection{Minorantenkriterium}
+2 Reihen bekannt: $\sum_{n=0}^{\infty} s_n$ und $\sum_{n=0}^{\infty} t_n$ und zweitere divergiert (bestimmt). \\
+Wenn für fast alle $n$ gilt: $ s_n \geq t_n \Rightarrow \sum_{n=0}^{\infty} s_n $ divergiert auch (bestimmt)
+\subsubsection{Majorantenkriterium}
+2 Reihen bekannt: $\sum_{n=0}^{\infty} s_n$ und $\sum_{n=0}^{\infty} t_n$ und zweitere konvergent \\
+Wenn für fast alle $n$ gilt: $ |s_n| \leq t_n \Rightarrow \sum_{n=0}^{\infty} s_n $ absolut konvergent, umkehrung gilt nicht!
 \subsubsection{Cauchykriterium}
+$ \forall \varepsilon > 0 \exists n_0 \forall n,m \geq n_0: |\sum_{i=0}^{n} s_i - \sum_{i=0}^{m} s_i| = |\sum_{i=n}^{m} s_i| < \varepsilon$ \\
+Wenn Cauchy-Kriterium erfüllt, konvergent ansonsten divergent
 \subsubsection{Leibnitzkriterium}
-https://youtu.be/xOhr3rFTjok
-\subsubsection{Noch son kack Kriterium}
+\begin{itemize}
+	\item $ \sum_{n=0}^{\infty} (-1)^n f_n $ mit $ \lim\limits_{n \rightarrow \infty} = 0,
+	\begin{array}{ll}
+	s_n \geq 0 \text{ monoton fallend } \\
+	s_n \leq 0 \text{ monoton steigend } 
+	\end{array}
+	$ 
+	\item Wenn Leibnitzkriterium erfüllt, konvergent, Umkehrung gilt nicht! 
+	\item Grenzwertabschätzung: $ s_{2n-1} \leq g \leq s_{2n} $
+\end{itemize}
+\subsubsection{Monotoniekriterium}
+TODO
+\subsubsection{Wurzelkriterium}
+$ \sqrt[n]{|s_n|} \leq C < 1 $ für fast alle $ n \in \mathbb{N} \Leftrightarrow \sum_{n=0}^{\infty} s_n$  absolut konvergent\\
+$ \sqrt[n]{|s_n|} \geq 1 $ für fast alle $ n \in \mathbb{N} \Leftrightarrow \sum_{n=0}^{\infty} s_n$ divergent \\
+\subsubsection{Quotientenkriterium}
+$|\frac{s_{n+1}}{s_n}| \leq C < 1$ für fast alle $ n \in \mathbb{N} \Leftrightarrow \sum_{n=0}^{\infty} s_n$  absolut konvergent\\
+
 \subsection{Koshere Folgen (Cauchy-Folgen)}
 Jede Konvergente Folge ist eine Cauchy Folge und ungekehrt.\\
 Hier steht fast das gleiche wie unter Konvergenz\\
 Sinn: Ab einem Mindestindex $n_0$ ist der Abstand zwischen 2 Folgegliedern kleiner als $\varepsilon$
 \subsubsection*{Formel}
 $ \forall \varepsilon > 0 \exists n_0 \forall n,m > n_0: |s_n - s_m| < \varepsilon$
-
+\subsection{Häufungspunkt}
+\begin{itemize}
+	\item Ein Häufungspunkt ist ein Punkt in dem sich unendlich viele Folgeglieder anhäufen.
+	\item Ist eine Folge Konvergent, so ist deren Grenze der einzige Häufungspunkt der Folge
+	\item $\limsup\limits_{n \rightarrow \infty}{s_n}$: Limes Superior, Größter Häufungspunkt
+	\item $\liminf\limits_{n \rightarrow \infty}{s_n}$: Limes Infimum, Kleinster Häufungspunkt
+\end{itemize}
 \section{Differenzieren (Ableiten)}
 
 \section{Integrieren}

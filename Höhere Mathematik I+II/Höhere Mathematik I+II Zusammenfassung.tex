@@ -7,6 +7,7 @@
 \usepackage[german]{babel}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{amsfonts}
 \usepackage{color}
 \everymath{\displaystyle}
@@ -139,4 +140,96 @@ Grenzen einfügen: $ \int_{1}^{2} \!(x^2+2)^3 \cdot 2x \,\mathrm{d}x = \left[ \f
 $ \int \!cos(x^3) \cdot 6x^2 \,\mathrm{d}x $ \\
 Setze $ u = x^3 \Rightarrow \mathrm{d}u = 3x^2 \,\mathrm{d}x \Rightarrow \mathrm{d}x = \frac{\mathrm{d}u}{3x^2}$ \\
 $ \int \!cos(u) \cdot 6x^2 \cdot \frac{\mathrm{d}u}{3x^2} = \int \!cos(u) \cdot 2 \,\mathrm{d}u = 2 \int \!cos(u) \,\mathrm{d}u = 2 sin(u) = 2 sin(x^3)$
+
+
+
+%HM2
+\clearpage
+\part*{HM2}
+\section{Ableiten}
+\subsection{Partielle Ableitung}
+Jede Funktion $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$ hat $n$ Partielle Ableitungen.
+Dabei wird nach der einen Variable abgeleitet, und die anderen Variablen als Konstanten angesehen.
+\subsubsection{Satz von Schwarz}
+Wenn die 2. partiellen Ableitungen stetig sind (fast immer der Fall) dann gilt: \\
+$ f_{xy} = f_{yx} $ Somit muss nur eine der beiden Ableitungen ausgerechnet werden
+\subsubsection{Beispiel}
+$f: \mathbb{R}^2 \rightarrow \mathbb{R} \\
+f(x,y) = x^2 + 3xy^3 \\
+f_x(x,y) = 2x + 3y^3 \\
+f_y(x,y) = 9xy^2 \\ \\
+f_{xx}(x,y) = 2\\
+\begin{rcases*}
+	f_{xy}(x,y) = 9y^2 \\
+	f_{yx}(x,y) = 9y^2 
+\end{rcases*}
+\text{Satz von Schwarz}\\
+f_{yy}(x,y) = 18xy$
+\subsection{Komplette Ableitung (Jakobi-Matrix)}
+$ f: \mathbb{R}^n \rightarrow \mathbb{R}^m \\
+f'(x) = 
+\begin{pmatrix}
+	\frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_n}  \\
+	\vdots &  & \vdots  \\
+	\frac{\partial f_m}{\partial x_m} & \cdots & \frac{\partial f_1}{\partial x_n} 
+\end{pmatrix} =
+\begin{pmatrix}
+	f_{x_1} & \cdots & f_{x_n}
+\end{pmatrix}
+$
+\subsubsection{Beispiel}
+$ f(r,\varphi) =
+\begin{pmatrix}
+	r \cos \varphi \\
+	r \sin \varphi
+\end{pmatrix} \\
+$$
+f'(r, \varphi) =
+\begin{pmatrix}
+	\cos \varphi & -r \sin \varphi\\
+	\sin \varphi & r \cos \varphi
+\end{pmatrix}
+$
+\subsubsection{Nochn Beispiel}
+$ f(x,y,z) =
+\begin{pmatrix}
+2x^2+5y-9z \\
+xy^2+z \\
+x^4y^6z^8
+\end{pmatrix} \\
+$$
+f'(x,y,z) =
+\begin{pmatrix}
+4x & 5 & -9\\
+y^2 & 2xy & 1 \\
+4x^3y^6z^8 & 6x^4y^5z^8 & 8x^4y^6z^7
+\end{pmatrix}
+$
+\subsection{Differenzierbarkeit und Stetigkeit}
+\subsection{Richtungsableitung}
+\section{Differentialgleichungen}
+\subsection{Gewöhnliche Differentialgleichungen}
+Explizite DGL: Nach der Höchsten Ableitung aufgelöst
+Implizite DGL: $Irgendwas = 0$
+Beispiel:
+\begin{itemize}
+	\item Explizit: $f'(x) = \text{drölf} f(x)$
+	\item Implizit: $f'(x) - \text{drölf} f(x) = 0$
+\end{itemize}
+
+\subsubsection{Homogene Gewöhnliche Differentialgleichungen erster Ordnung}
+Solche können gelöst werden, falls sie die Form $f'(x) = a(x) * b(f(x)) $ aufweisen. (separabel) \\
+Lösungsvorgehen: \\ \\
+\begin{tabular}{ll}
+	$\frac{f'(x)}{b(f(x))} = a(x)$ & Explizite DGL durch $b(f(x))$ teilen\\
+	$\int_{x0}^{x}\!\frac{f'(x)}{b(f(x))}\,\mathrm{d}x = \int_{x0}^{x}\!a(x)\,\mathrm{d}x$ & Integrieren mit Grenzen $x_0 \text{und} x$ \\
+	$\int_{f(x0)}^{f(x)}\!\frac{1}{b(u)}\,\mathrm{d}u = \int_{x0}^{x}\!a(x)\,\mathrm{d}x$&Substitution von $f(x)$ durch $u$ auf der Seite von $b(f(x)) \rightarrow f'(x) = \frac{du}{dx}$
+\end{tabular}
+$\Rightarrow$ Formel für Homogene DGL erster Ordnung: $\int_{f(x0)}^{f(x)}\!\frac{1}{b(u)}\,\mathrm{d}u = \int_{x0}^{x}\!a(x)\,\mathrm{d}x$\\
+Beispiel: $f'(x) = 3x \cdot f(x)$ \\
+\subsubsection{Inhomogene Gewöhnliche Differentialgleichungen erster Ordnung}
+Haben die Form: $f'(x) = a(x) \cdot f(x) + b(x)$ Das $b(x)$ "stört" \\
+
+
+Variation der Konstanten
 \end{document}

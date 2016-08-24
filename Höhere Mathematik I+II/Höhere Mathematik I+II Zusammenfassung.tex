@@ -146,6 +146,7 @@ $ \int \!cos(u) \cdot 6x^2 \cdot \frac{\mathrm{d}u}{3x^2} = \int \!cos(u) \cdot 
 %HM2
 \clearpage
 \part*{HM2}
+\section{Konvergenz im $\mathbb{R}^n$}
 \section{Ableiten}
 \subsection{Partielle Ableitung}
 Jede Funktion $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$ hat $n$ Partielle Ableitungen.
@@ -153,7 +154,7 @@ Dabei wird nach der einen Variable abgeleitet, und die anderen Variablen als Kon
 \subsubsection{Satz von Schwarz}
 Wenn die 2. partiellen Ableitungen stetig sind (fast immer der Fall) dann gilt: \\
 $ f_{xy} = f_{yx} $ Somit muss nur eine der beiden Ableitungen ausgerechnet werden
-\subsubsection{Beispiel}
+\subsubsection*{Beispiel}
 $f: \mathbb{R}^2 \rightarrow \mathbb{R} \\
 f(x,y) = x^2 + 3xy^3 \\
 f_x(x,y) = 2x + 3y^3 \\
@@ -165,9 +166,18 @@ f_{xx}(x,y) = 2\\
 \end{rcases*}
 \text{Satz von Schwarz}\\
 f_{yy}(x,y) = 18xy$
+\subsubsection{Hesse Matrix}
+Alle zweiten Partiellen Ableitungen in einer Matrix \\
+$H_f(x) = 
+\begin{pmatrix}
+	f_{x_1x_1} & \cdots & f_{x_1x_n}   \\
+	\vdots &  & \vdots  \\
+	f_{x_nx_1} & \cdots & f_{x_nx_n} 
+\end{pmatrix}
+$
 \subsection{Komplette Ableitung (Jakobi-Matrix)}
 $ f: \mathbb{R}^n \rightarrow \mathbb{R}^m \\
-f'(x) = 
+f'(x) = J_f(x) =
 \begin{pmatrix}
 	\frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_n}  \\
 	\vdots &  & \vdots  \\
@@ -190,7 +200,7 @@ f'(r, \varphi) =
 	\sin \varphi & r \cos \varphi
 \end{pmatrix}
 $
-\subsubsection{Nochn Beispiel}
+\subsubsection*{Nochn Beispiel}
 $ f(x,y,z) =
 \begin{pmatrix}
 2x^2+5y-9z \\
@@ -207,6 +217,21 @@ y^2 & 2xy & 1 \\
 $
 \subsection{Differenzierbarkeit und Stetigkeit}
 \subsection{Richtungsableitung}
+
+$\lim_{t \rightarrow 0}\frac{f(x_0+t \cdot a)-f(x_0)}{t}$ für $a = $ Richtung, $x_0 = $ Punkt
+\subsection{Implizit definierte Funktionen}
+Eine Funktion $f(x,y)$ mit 2 Variablen $\Rightarrow$ kann die Funktion nach y aufgelöst werden? \\
+Vorgehen: $f(x,y) = 0$ \\
+\subsubsection*{Vokabeln}
+\begin{itemize}
+	\item eindeutig auflösbar: Es gibt eine eideutige Lösung
+	\item lokal eindeutig: Es gibt mehrere Lösungen die für sich selbst eindeutig sind.
+	\item in einem Punkt nicht lokal eindeutig: z.B. $y=\pm x$ (beide Lösungen bei (0,0) identisch
+	\item Siehe Grafiken auf S.234 im Skript
+\end{itemize}
+\subsubsection*{Beispiel}
+$f(x,y) = x^2+5y \\
+\Rightarrow y = -\frac{x^2}{5}$
 \section{Differentialgleichungen}
 \subsection{Gewöhnliche Differentialgleichungen}
 Explizite DGL: Nach der Höchsten Ableitung aufgelöst
@@ -232,4 +257,12 @@ Haben die Form: $f'(x) = a(x) \cdot f(x) + b(x)$ Das $b(x)$ "stört" \\
 
 
 Variation der Konstanten
+\subsubsection{Anfangswertproblem (AWP)}
+
+\section{Lineares Differentialgleichungssystem (LDGS)}
+
+\section{VORSICHT}
+$\int\frac{1}{1-x} = -\int\frac{1}{x-1} = -\ln(x-1)$ \\
+$\frac{2}{\sqrt{2}} = \sqrt{2}$
+
 \end{document}

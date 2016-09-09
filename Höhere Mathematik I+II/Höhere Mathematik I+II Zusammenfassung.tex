@@ -111,6 +111,29 @@ $ \forall \varepsilon > 0 \exists n_0 \forall n,m > n_0: |s_n - s_m| < \varepsil
 \end{itemize}
 \subsection{Konvergenzradius}
 TODO
+\clearpage
+\section{Fourier Reihe}
+Jede Funktion lässt sich als Fourier Reihe approximieren.\\
+$f(x) = a_0 + \sum\limits_{n=1}^{\infty}(a_n\cdot \cos (\frac{n\pi x}{L})+b_n\cdot \sin (\frac{n\pi x}{L}))$ \\
+Notwendige Parameter:
+\begin{itemize}
+  \item $a_0$ Der Mittelwert der Funktion
+  \item $a_n$ und $b_n$ die Parameter der Streckung der Trigonometrischen Funktionen
+  \item $L$, die Halbe Periode. Ist $f(x)$ $2\pi$-Periodisch so gilt $2L = 2\pi \Rightarrow L=\pi$
+\end{itemize}
+
+\subsection{Berechnung von $a_0$, $a_n$ und $b_n$}
+\begin{itemize}
+  \item $a_0 = \frac{1}{2L} \cdot \int\limits_{-L}^{L} \!f(x)  \, \mathrm{d}x$ 
+  \item $a_n = \frac{1}{L} \cdot \int\limits_{-L}^{L} \! f(x) \cdot \cos (\frac{n\pi x}{L}) \, \mathrm{d}x$ 
+  \item $b_n = \frac{1}{L} \cdot \int\limits_{-L}^{L} \! f(x) \cdot \sin (\frac{n\pi x}{L}) \, \mathrm{d}x$ 
+\end{itemize}
+\subsection{Wissenswertes}
+\begin{itemize}
+  \item Wenn $f(x)$ ungerade $(f(-x) = -f(x)$, dann $a_n = 0$ (alle Cosinus)
+  \item Wenn $f(x)$ gerade $(f(-x) = f(x)$, dann $b_n = 0$ (alle Sinus)
+  \item Wenn die Funktion um die $x$-Achse pendelt und der Mittelwert$=0$ gilt, dann gilt $a_0=0$
+\end{itemize}
 \section{Differenzieren (Ableiten)}
 
 \section{Integrieren}

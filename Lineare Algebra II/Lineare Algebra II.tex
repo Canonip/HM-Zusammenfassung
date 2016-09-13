@@ -1,12 +1,13 @@
 \documentclass[a4paper,portrait]{scrartcl}
 \author{Andreas Mai}
-\title{LA II Basics}
+\title{LA II Basics/Kochrezepte}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[german]{babel}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{hyperref}
 \usepackage{mathtools}
 \usepackage{amsfonts}
 \usepackage{color}
@@ -23,7 +24,7 @@
 
 \begin{center}
 \textit{Kein Anspruch auf Vollständigkeit ;)} \\
-\textit{Jetzt Ernsthaft.. Dieses Skript ist nicht ansatzweise fertig} \\
+\textit{Jetzt Ernsthaft.. Dieses Skript ist nicht ansatzweise fertig} \\ \\
 \includegraphics{matrix_transform.png}
 
 \end{center}
@@ -49,6 +50,7 @@ Vorgehen:
 		\item Index = größtes Jordankästchen im Block
 	\end{itemize}
 	\item Per Konvention: größte Jordanblöcke und -kästchen zuerst
+	\item Minimalpolynom $m_p$: Wie Charakteristisches Polynom, Potenzen aber wie das größte Jordankästchen zum Eigenwert.
 \end{itemize}
 \subsubsection*{Lösen von Allgemeinen Aufgaben}
 Zum lösen von allgemeinen Aufgaben ohne konkret gegebene Matrix hilft:
@@ -61,13 +63,15 @@ Zum lösen von allgemeinen Aufgaben ohne konkret gegebene Matrix hilft:
 \end{itemize}
 \subsection{Bestimmung der Basiswechselmatrix S}
 Hauptraum: Kleinste Zahl $p$, für die gilt: $Kern(A-\lambda I)^p = Kern(A-\lambda I)^{p+1}$\\
-
 \begin{itemize}
 	\item Nehme Basisvektoren aus $Kern(A-\lambda I)^p$, welche nicht in  $Kern(A-\lambda I)^{p-1}$ enthalten sind $\Rightarrow v_1, v_2, ...$
 	\item Die Geordnete Basis ist definiert durch: \\
 		$v_1, (A-\lambda I)\cdot v_1, (A-\lambda I)^2\cdot v_1,\; \hdots\; , v_2, (A-\lambda I)\cdot v_2, (A-\lambda I)^2\cdot v_2,\; \hdots$\\
 		(jeweils bis $(A-\lambda I)^{p-1}$)
-	\item hieer fehlt glaub noch was
+	\item Falls Jordankästchen des EW der Größe $p-1$ existiert, Schritte wiederholen für $p \rightarrow p-1$
+	\item Diese Schritte wür alle EW wiederholen
+	\item Falls noch nicht alle Vektoren für die Basis vorhanden: Vektoren aus $Kern(A-\lambda I)$ hinzufügen, welche linear unabhängig sind
+	
 \end{itemize}
 \section{Isometrienormalform}
 \begin{itemize}
@@ -117,6 +121,18 @@ Hilfreich, bei allgemeinen Aufgaben ohne konkret gegebene Matrix
 	Ein $v$ wählen und mit $\tilde{A}v$ orthonalisieren und Normalisieren (Gram-Schmidt) \\
 	Falls Eigenraum Dimension $2$ hat, mit nächstem Eigenraum fortfahren
 \end{itemize}
+\subsection{Gram-Schmidt Verfahren zur Orthonormalbasis}
+\begin{itemize}
+	\item gegeben: Basis $(b_1, \hdots ,b_n)$ \\
+		gesucht: Orthonormalbasis $(c_1, \hdots ,c_n)$
+	\item Wähle einen Vektor aus der Basis und normiere ihn $\Rightarrow c_1$
+	\item $c_2' = b_2 - \langle b_2 \cdot c_1 \rangle \cdot c_1$ \\
+		$c_2 = \frac{1}{|c_2'|}\cdot c_2'$ ($c_2'$ Normieren)
+	\item $c_3' = b_3 - \langle b_3 \cdot c_2 \rangle \cdot c_2 - \langle b_3 \cdot c_1 \rangle \cdot c_1$ \\
+	$c_3 = \frac{1}{|c_3'|}\cdot c_3'$ ($c_3'$ Normieren)
+	\item und so weiter
+\end{itemize}
+
 \section{Drehachse und -winkel}
 \begin{itemize}
 
@@ -159,5 +175,52 @@ Die Isometrienormalform im $\mathbb{R}^3$ besteht immer aus:
 	\item $\sin = \sqrt{1-\cos^2}$
 \end{itemize}
 Merke auch die Matrix $D_\lambda$ unter dem Punkt Isometrienormalform
+\section{Bestimmung von Basiswechselmatrix zu Isometrie}
+\begin{itemize}
+	\item Bestimme Eigenräume zu Eigenwerten von $H=A+A^T$
+	\item Bestimme insgesamt ONB aus Eigenräumen
+	\item Vorletzter Basisvektor $b_{n-1}$ nehmen \\
+		$A\cdot b_{n-1}$ berechnen und als Linearkombination von $b_{n} \text{ und } b_{n-1}$ darstellen
+	\begin{itemize}
+		\item Falls $b_{n-1} = \hdots b_{n-1} + \hdots b_{n}$, be happy
+		\item Falls $b_{n-1} = \hdots b_{n-1} - \hdots b_{n}$, mit $-1$ Multiplizieren
+	\end{itemize}
+	\item $b_1, \hdots b_n$ sind die Spalten der Basiswechselmatrix $S$
+\end{itemize}
+\section{Skalarproduktbeweis}
+\begin{itemize}
+	\item Symmetrie Zeigen: $\langle x,y \rangle = \langle y,x \rangle$
+	\item Bilinearform Zeigen:
+	\begin{itemize}
+		\item $\langle A_1+A_2,B\rangle = \langle A_1,B\rangle + \langle A_2,B\rangle$
+		\item $\langle c \cdot A,B \rangle = c \cdot \langle A,B\rangle$
+	\end{itemize}
+	\item Positive Definitheit zeigen
+	\begin{itemize}
 
+		\item $\langle x,x \rangle > 0 $ (für $x \neq 0$)
+		\item $\langle x,x \rangle = 0 $ (nur für $x = 0$)
+	\end{itemize}
+\end{itemize}
+\section{Orthogonales Komplement}
+\begin{itemize}
+	\item Vektoren von $U$ horizontal in eine Matrix Schreiben
+	\item Kern der Matrix ausrechnen (Gauß und -1-Trick)
+	\item Kern = Basis von $U^\perp$
+\end{itemize}
+\section{Orthogonale Projektion $\pi_U(v)$}
+\begin{itemize}
+	\item Bestimme ONB von $U$: $b_1, \hdots b_n$
+	\item $\pi_U(v) = \langle v,b_1\rangle \cdot b_1 + \cdots + \langle v,b_n\rangle \cdot b_n$
+\end{itemize}
+Abstand $d(v,U) = ||\pi_U(v)||$
+\section{Abstand von Untervetorräumen}
+\begin{itemize}
+	\item 
+\end{itemize}
+\section{Formeln}
+\begin{itemize}
+	\item Winkel zwischen 2 Vektoren $\cos \alpha = \frac{\langle x,y \rangle}{||x|| \cdot ||y||}$
+	\item 2 Vektoren orthogonal, wenn $\langle x,y \rangle = 0$
+\end{itemize}
 \end{document}
